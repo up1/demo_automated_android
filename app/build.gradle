@@ -14,6 +14,16 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            storeFile file("../demo.keystore")
+            storePassword "password"
+            keyAlias "demo"
+            keyPassword "password"
+        }
+    }
+
     buildTypes {
         debug {
             testCoverageEnabled = true
@@ -21,8 +31,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
+
 }
 
 dependencies {
@@ -44,7 +56,7 @@ dependencies {
     androidTestCompile 'com.squareup.spoon:spoon-client:1.3.1'
 
     //Fastlane screengrab
-    androidTestCompile 'tools.fastlane:screengrab:0.1.2'
+    androidTestCompile 'tools.fastlane:screengrab:0.3.0'
 }
 
 configurations {
