@@ -74,9 +74,3 @@ configurations.compile.dependencies.each { compileDependency ->
     }
 }
 
-jacocoTestReport {
-    reports {
-        xml.enabled true
-        html.enabled true
-    }
-}
